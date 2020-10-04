@@ -20,8 +20,6 @@
   }
 
   function setPokerNowBlind(index, sb, bb, duration) {
-    console.log(index);
-    
     // set small blind
     const sbelem = document.querySelector(`.blind-level-table tr:nth-child(${index}) :nth-child(2) input`);
     setNativeValue(sbelem, sb);
@@ -33,10 +31,8 @@
     // duration is tricky - if duration requested and the element is disabled, we need to click next level
     if (duration) {
       const durationelem = document.querySelector(`.blind-level-table tr:nth-child(${index}) :nth-child(4) input`);
-      console.log(durationelem);
       if (durationelem.disabled) {
         const addLevelButton = document.querySelector(`.blind-level-table tr:nth-child(${index + 1}) button`);
-        console.log(addLevelButton);
         click(addLevelButton);
       }
       setNativeValue(durationelem, duration);
